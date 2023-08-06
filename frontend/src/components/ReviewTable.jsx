@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 
-const ReviewTable = () => {
-  const { department } = useParams();
+const ReviewTable = ({ department }) => {
   const [datas, setDatas] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemPerPage = 5;

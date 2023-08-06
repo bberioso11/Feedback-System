@@ -1,6 +1,9 @@
 import React from "react";
 import ReviewTable from "../components/ReviewTable";
+import { useParams } from "react-router-dom";
 const Review = () => {
+  const { department } = useParams();
+  console.log(department);
   return (
     <>
       <div className="container-fluid">
@@ -29,21 +32,21 @@ const Review = () => {
               <div className="carousel-inner">
                 <div className="carousel-item active">
                   <img
-                    src="/images/placeholder.webp"
+                    src={"/images/department/" + department + ".jpg"}
                     className="d-block w-100"
                     alt="..."
                   />
                 </div>
                 <div className="carousel-item">
                   <img
-                    src="/images/placeholder.webp"
+                    src={"/images/department/" + department + ".jpg"}
                     className="d-block w-100"
                     alt="..."
                   />
                 </div>
                 <div className="carousel-item">
                   <img
-                    src="/images/placeholder.webp"
+                    src={"/images/department/" + department + ".jpg"}
                     className="d-block w-100"
                     alt="..."
                   />
@@ -70,7 +73,7 @@ const Review = () => {
                 <span className="visually-hidden">Next</span>
               </button>
             </div>
-            <ReviewTable />
+            <ReviewTable department={department} />
           </div>
         </div>
       </div>

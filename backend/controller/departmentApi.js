@@ -7,3 +7,8 @@ export const checkDepartment = async (req, res) => {
   const data = await department.checkDepartment(name);
   res.json(data);
 };
+
+export const getDepartments = async (req, res) => {
+  const data = await department.getDepartments();
+  res.json(data);
+};

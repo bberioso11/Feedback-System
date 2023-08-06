@@ -19,6 +19,18 @@ class Department extends Database {
       db.end();
     }
   }
+
+  async getDepartments() {
+    const db = await this.dbconnect();
+    try {
+      const [data] = await db.execute(`SELECT * FROM departments`);
+      return data;
+    } catch (err) {
+      console.log(err);
+    } finally {
+      db.end();
+    }
+  }
 }
 
 export default Department;

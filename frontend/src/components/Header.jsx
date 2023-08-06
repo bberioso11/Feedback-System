@@ -1,11 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "/images/perpetual-logo.png";
 import useUserData from "../hooks/userData";
 import { UserDataContext } from "../contexts/UserDataContext";
+import axios from "axios";
+import useDepartments from "../hooks/useDepartments";
 
 const Header = () => {
   const userData = useContext(UserDataContext);
+  const departments = useDepartments();
+  if (!departments) {
+    return (
+      <>
+        <div>Loading</div>
+      </>
+    );
+  }
   return (
     <>
       <nav
@@ -45,16 +55,15 @@ const Header = () => {
                   Reviews
                 </a>
                 <ul className="dropdown-menu">
-                  <li>
-                    <Link to="/review/cashier" className="dropdown-item">
-                      Cashier
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/review/Canteen" className="dropdown-item">
-                      Canteen
-                    </Link>
-                  </li>
+                  {departments.map((department, index) => (
+                    <li key={index}>
+                      <Link
+                        to={"/review/" + department.name}
+                        className="dropdown-item">
+                        {department.name}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </li>
               <li className="nav-item dropdown">
@@ -67,16 +76,19 @@ const Header = () => {
                   Departments
                 </a>
                 <ul className="dropdown-menu">
-                  <li>
-                    <Link to="/departments/cashier" className="dropdown-item">
-                      Cashier
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/departments/canteen" className="dropdown-item">
-                      Canteen
-                    </Link>
-                  </li>
+                  {departments.map((department, index) => (
+                    <li key={index}>
+                      <Link
+                        to={
+                          userData
+                            ? "/departments/" + department.name
+                            : "/login"
+                        }
+                        className="dropdown-item">
+                        {department.name}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </li>
               {userData?.account_type === "admin" ? (
