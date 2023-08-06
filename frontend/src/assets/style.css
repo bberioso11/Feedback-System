@@ -1,0 +1,12 @@
+.p-btn-primary {
+  border-style: solid;
+  padding: 8px 13px 8px 13px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.p-btn-primary:hover {
+  background-color: #eeb500;
+  border-color: #eeb500;
+}
