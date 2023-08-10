@@ -34,11 +34,9 @@ const ReviewTable = ({ department }) => {
           <div className="mt-3">
             <h6 className="m-0">{review.name}</h6>
             <div>
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
+              {Array.from({ length: review.ratings }).map((_, index) => (
+                <AiFillStar color="#700B00" key={index} />
+              ))}
             </div>
             <p className="mb-2" style={{ fontSize: "13px" }}>
               {review.date}

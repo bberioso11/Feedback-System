@@ -7,13 +7,14 @@ import Logout from "./pages/Logout";
 import Register from "./pages/Register";
 import Layout from "./Layout";
 import Accounts from "./pages/admin/Accounts";
+import Departments from "./pages/admin/Departments";
 function App() {
   return (
     <>
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/departments/:name" element={<Department />} />
+          <Route path="/department/:name" element={<Department />} />
           <Route path="/review/:department" element={<Review />} />
         </Route>
         <Route path="/login" element={<Login />} />
@@ -21,6 +22,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/admin" element={<Layout />}>
           <Route path="accounts/:course" element={<Accounts />} />
+          <Route path="department/:name" element={<Departments />} />
         </Route>
       </Routes>
     </>

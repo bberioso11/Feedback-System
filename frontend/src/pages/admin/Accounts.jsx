@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import Loader from "../Loader";
 import AccountsTable from "../../components/AccountsTable";
@@ -37,9 +37,21 @@ const Accounts = () => {
 
   return (
     <>
-      <div className="container mt-5 ">
+      <div className="container mt-3 ">
         <div className="row justify-content-center">
           <div className="col-12 col-lg-8">
+            <nav className="mb-4" aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item">
+                  <Link className="perpertual-primary" to="/">
+                    Home
+                  </Link>
+                </li>
+                <li className="breadcrumb-item active" aria-current="page">
+                  {course}
+                </li>
+              </ol>
+            </nav>
             <AccountsTable accounts={accounts} />
           </div>
         </div>

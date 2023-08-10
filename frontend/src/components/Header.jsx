@@ -75,21 +75,39 @@ const Header = () => {
                   aria-expanded="false">
                   Departments
                 </a>
-                <ul className="dropdown-menu">
-                  {departments.map((department, index) => (
-                    <li key={index}>
-                      <Link
-                        to={
-                          userData
-                            ? "/departments/" + department.name
-                            : "/login"
-                        }
-                        className="dropdown-item">
-                        {department.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                {userData?.account_type === "admin" ? (
+                  <ul className="dropdown-menu">
+                    {departments.map((department, index) => (
+                      <li key={index}>
+                        <Link
+                          to={
+                            userData
+                              ? "/admin/department/" + department.name
+                              : "/login"
+                          }
+                          className="dropdown-item">
+                          {department.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <ul className="dropdown-menu">
+                    {departments.map((department, index) => (
+                      <li key={index}>
+                        <Link
+                          to={
+                            userData
+                              ? "/department/" + department.name
+                              : "/login"
+                          }
+                          className="dropdown-item">
+                          {department.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
               {userData?.account_type === "admin" ? (
                 <>

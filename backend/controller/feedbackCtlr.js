@@ -15,3 +15,9 @@ export const submitFeedback = async (req, res) => {
   const response = await feedback.submitFeedback(req.body);
   res.json(response);
 };
+
+export const deleteFeedback = async (req, res) => {
+  const id = req.query.id;
+  const response = await feedback.deleteFeedback(id);
+  res.json(response);
+};

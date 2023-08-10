@@ -24,7 +24,7 @@ app.use("/api/course", courseRoutes);
 app.use("/api/feedback", feedbackRoutes);
 app.use("/api/review", reviewRoutes);
 app.get("/qr", (req, res) => {
-  const targetUrl = "https://efeedback.com/department/cashier"; // Replace this with the URL you want to redirect to
+  const targetUrl = "https://efeedback.com/department/LearningResource"; // Replace this with the URL you want to redirect to
   const options = {
     type: "png", // Set the QR code image type (e.g., png, jpeg, etc.)
   };

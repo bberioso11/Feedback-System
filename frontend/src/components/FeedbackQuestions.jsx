@@ -2,11 +2,18 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { UserDataContext } from "../contexts/UserDataContext";
+import { useNavigate } from "react-router-dom";
+import useGetQuestions from "../hooks/useGetQuestions";
+import { QRCodeCanvas } from "qrcode.react";
+import { useLocation } from "react-router-dom";
 
 const FeedbackQuestions = ({ department }) => {
-  const [questions, setQuestions] = useState();
+  const location = useLocation();
+  const url = window.location.origin + location.pathname;
+  const questions = useGetQuestions();
   const [choices, setChoices] = useState();
   const userData = useContext(UserDataContext);
+  const navigate = useNavigate();
 
   const [answerForm, setAnswerForm] = useState({
     question1: 0,
@@ -18,12 +25,10 @@ const FeedbackQuestions = ({ department }) => {
     comment: "",
     department: department,
     name: userData.firstname + " " + userData.lastname,
+    userid: userData.id,
   });
 
   useEffect(() => {
-    axios.get(`/api/feedback/questions-list`).then((response) => {
-      setQuestions(response.data);
-    });
     axios.get(`/api/feedback/choices-list`).then((response) => {
       setChoices(response.data);
     });
@@ -61,7 +66,7 @@ const FeedbackQuestions = ({ department }) => {
           icon: "success",
           title: "Success",
           text: "Feedback submitted succesfully!",
-        });
+        }).then(() => navigate("/review/" + department));
       });
   };
 
@@ -74,10 +79,24 @@ const FeedbackQuestions = ({ department }) => {
       <div className="row justify-content-center">
         <div className="col-12 col-md-6 border rounded shadow px-5 py-4 my-3">
           <form onSubmit={handleForm}>
-            <h3 className="mb-4 fw-semibold">
-              {department.charAt(0).toUpperCase() + department.slice(1) + " "}
-              Feedback Form Questions:
-            </h3>
+            <div className="d-flex justify-content-between mb-3">
+              <div className="my-auto">
+                <h3 className="mb-4 fw-semibold">
+                  {department.charAt(0).toUpperCase() +
+                    department.slice(1) +
+                    " "}
+                  Feedback Questions:
+                </h3>
+              </div>
+              <QRCodeCanvas
+                value={url}
+                size={100}
+                bgColor={"#ffffff"}
+                fgColor={"#000000"}
+                level={"L"}
+                includeMargin={false}
+              />
+            </div>
             {questions.map((data, indexQ) => (
               <div key={indexQ} className="mb-3">
                 <label className="mb-2 ">
