@@ -1,18 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 import regex from "../../utils/regex";
 import useVerifyToken from "../hooks/useVerifyToken";
 import axios from "axios";
 
 const Login = () => {
-  useVerifyToken();
+  const { isValid } = useVerifyToken();
+  const location = useLocation();
+  console.log(location);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const emailRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isValid) {
+      navigate("/");
+    }
+  }, [isValid]);
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -74,7 +82,13 @@ const Login = () => {
       icon: "success",
       title: "Success",
       text: data.message,
-      didClose: () => navigate("/"),
+      didClose: () => {
+        if (location.state && location.state.from) {
+          navigate(location.state.from);
+        } else {
+          navigate("/");
+        }
+      },
     });
     setEmail("");
     setPassword("");

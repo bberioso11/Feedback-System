@@ -5,9 +5,9 @@ const Review = () => {
   const { department } = useParams();
   return (
     <>
-      <div className="container-fluid">
-        <div className="row justify-content-center px-5 mt-4">
-          <div className="col-6 ">
+      <div className="container-fluid mt-3 mb-4">
+        <div className="row justify-content-center">
+          <div className="col-12 col-lg-7">
             <nav className="mb-4" aria-label="breadcrumb">
               <ol className="breadcrumb">
                 <li className="breadcrumb-item">

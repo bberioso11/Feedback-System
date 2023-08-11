@@ -96,11 +96,7 @@ const Header = () => {
                     {departments.map((department, index) => (
                       <li key={index}>
                         <Link
-                          to={
-                            userData
-                              ? "/department/" + department.name
-                              : "/login"
-                          }
+                          to={"/department/" + department.name}
                           className="dropdown-item">
                           {department.name}
                         </Link>

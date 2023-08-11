@@ -13,14 +13,33 @@ const Home = () => {
     <>
       <div className="container-fluid">
         <div className="mt-3 border rounded shadow p-3">
-          <h5>E-Feedback Mo!</h5>
+          <h5>Welcome to Human Resources Feedback Web!</h5>
           <p className="">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti
-            dolorum corrupti, sapiente maxime voluptatibus perferendis illum
-            fugit nemo totam obcaecati aliquam qui consectetur nulla tempore eum
-            quam, assumenda explicabo, exercitationem rerum odio autem delectus?
-            Facilis, quibusdam magni libero omnis nihil, quaerat esse veritatis
-            voluptas soluta qui quod. Iusto, ullam ea.
+            We extend a warm and hearty welcome to all our valued employees and
+            stakeholders to our newly launched Human Resources Department
+            Feedback Web Portal. At University of Perpetual Help Molino, we
+            believe that every voice matters, and this platform has been
+            meticulously designed to provide you with a seamless and efficient
+            way to share your thoughts, suggestions, and concerns. Our
+            commitment to fostering a positive and thriving work environment is
+            unwavering, and your feedback plays a pivotal role in helping us
+            achieve this goal. This innovative portal empowers you to actively
+            participate in shaping the future of our organization by
+            contributing your insights. Whether you have ideas to enhance our
+            workplace culture, suggestions for process improvements, or concerns
+            that require attention, this platform is your direct line of
+            communication to our HR team. Navigating the portal is intuitive and
+            user-friendly, ensuring that you can easily submit your feedback and
+            track its progress. Our dedicated HR professionals are here to
+            listen, understand, and act where needed. Your feedback isn't just a
+            formality; it's a catalyst for positive change, leading us toward
+            continuous growth and improvement. As you embark on this journey of
+            collaboration and communication, we encourage you to use this
+            platform responsibly and respectfully. Your input will undoubtedly
+            contribute to making University of Perpetual Help Molino an even
+            better place to work and thrive. Thank you for being an essential
+            part of our HR feedback community, and we look forward to engaging
+            with your valuable insights.
           </p>
         </div>
         <div className="p-3 mt-3 border rounded shadow">

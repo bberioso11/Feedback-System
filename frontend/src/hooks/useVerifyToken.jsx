@@ -1,16 +1,19 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const useVerifyToken = () => {
-  const navigate = useNavigate();
+  const [isValid, setIsValid] = useState(null);
   useEffect(() => {
     axios.get("/api/authenticate/verifytoken").then((token) => {
       if (token.data.isExisting) {
-        navigate("/");
+        setIsValid(true);
+      } else {
+        setIsValid(false);
       }
     });
   }, []);
+  return { isValid };
 };
 
 export default useVerifyToken;
