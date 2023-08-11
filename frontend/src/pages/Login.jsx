@@ -51,7 +51,7 @@ const Login = () => {
     }
 
     const { data } = await axios.post(
-      "/authenticate/login",
+      "/api/authenticate/login",
       {
         email: email,
         password: password,

@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 app.listen(3000, () => console.log("Server is running in 3000"));
 
-app.use("/authenticate", authenticate);
+app.use("/api/authenticate", authenticate);
 app.use("/api/user", userApiRoutes);
 app.use("/api/department", departmentApiRoutes);
 app.use("/api/account", accountRoutes);

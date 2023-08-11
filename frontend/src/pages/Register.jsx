@@ -100,7 +100,7 @@ const Register = () => {
       return;
     }
     const { data } = await axios.post(
-      "/authenticate/register",
+      "/api/authenticate/register",
       {
         firstname: firstname,
         lastname: lastname,

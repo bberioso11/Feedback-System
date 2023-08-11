@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Logout = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    axios.get("/authenticate/logout").then(() => {
+    axios.get("/api/authenticate/logout").then(() => {
       navigate("/");
     });
   }, []);
